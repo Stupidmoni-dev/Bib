@@ -1,6 +1,6 @@
 import requests
 from telegram import Update
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+from telegram.ext import Updater, CommandHandler, MessageHandler, filters, CallbackContext
 import random
 
 # Replace with your Bot Token
@@ -100,7 +100,7 @@ def main():
     dp.add_handler(CommandHandler("help", help))
 
     # Add message handler for responding to Bible or Christian-related messages
-    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
+    dp.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
     # Start the bot
     updater.start_polling()
